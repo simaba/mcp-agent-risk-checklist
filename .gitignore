@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+secrets.*
+credentials.*
+
+# Private MCP and agent assets
+private/
+servers/private/
+servers/internal/
+manifests/private/
+manifests/internal/
+tools/private/
+tools/internal/
+examples/private/
+examples/internal/
+incidents/private/
+logs/private/
+customer_data/
+
+# Generated outputs
+out/
+outputs/
+reports/generated/
+*.log
+*.tmp
+
+# Local notebooks and scratch
+scratch/
+tmp/
+*.ipynb_checkpoints/
+
+# Keep public-safe examples only
+!examples/
