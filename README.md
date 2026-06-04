@@ -2,19 +2,19 @@
 
 A lightweight checklist for reviewing Model Context Protocol (MCP) servers, tools, and agent integrations before they are used in agentic workflows.
 
-## Status
+## Maturity
 
 **Initial checklist draft.**
 
-This repository is currently a public-ready starting point for structured MCP and agent-tool risk review. It is not yet a full security framework, automated scanner, or formal compliance tool.
+This repository is a starting point for structured MCP and agent-tool risk review. It is not a full security framework, automated scanner, or formal compliance tool.
 
-## Why this exists
+## Purpose
 
 MCP-style tool access can make agents more useful, but it also expands the risk surface. A practical review should ask whether the agent can access, modify, exfiltrate, or misuse data or tools in ways that were not intended.
 
 This checklist focuses on the operational questions teams should ask before connecting tools to agents.
 
-## Checklist areas
+## Review areas
 
 ### 1. Tool scope
 
@@ -65,7 +65,7 @@ This checklist focuses on the operational questions teams should ask before conn
 - Who reviews incidents or unexpected behavior?
 - Is there a clear escalation path?
 
-## Public-safe use rule
+## Publication safety
 
 Do not publish real MCP server configurations, private tool schemas, internal endpoints, credentials, customer data, or proprietary agent policies in this repository.
 
@@ -78,9 +78,9 @@ Use fictional examples when demonstrating:
 - approval workflows
 - risk assessments
 
-## What this repo does not claim yet
+## Out of scope
 
-This repo does **not** yet claim:
+This checklist does not yet provide:
 
 - automated MCP security scanning
 - complete coverage of all agent-tool risks
@@ -89,9 +89,9 @@ This repo does **not** yet claim:
 - vendor endorsement
 - production-readiness certification
 
-## Next maturity step
+## Roadmap
 
-To make this repository stronger, add:
+To mature this repository, add:
 
 1. a machine-readable checklist schema
 2. a filled fictional example review
