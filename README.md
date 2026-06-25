@@ -1,110 +1,64 @@
 # MCP Agent Risk Checklist
 
-A lightweight checklist for reviewing Model Context Protocol (MCP) servers, tools, and agent integrations before they are used in agentic workflows.
+A lightweight, public-safe review aid for Model Context Protocol (MCP) servers, tools, and agent integrations.
 
 ## Maturity
 
-**Initial checklist draft.**
+**Early practitioner toolkit.**
 
-This repository is a starting point for structured MCP and agent-tool risk review. It is not a full security framework, automated scanner, or formal compliance tool.
+This repository provides a structured checklist, fictional review schema/example, risk-scoring guidance, and common mitigation prompts. It is not a security framework, automated scanner, formal assessment, or compliance tool.
+
+## Start here
+
+- [Fictional risk-review schema](schemas/mcp-risk-review.schema.json)
+- [Filled fictional review](examples/fictional-mcp-risk-review.json)
+- [Risk scoring guidance](docs/RISK_SCORING.md)
+- [Common mitigations](docs/COMMON_MITIGATIONS.md)
+- [Changelog](CHANGELOG.md)
 
 ## Purpose
 
-MCP-style tool access can make agents more useful, but it also expands the risk surface. A practical review should ask whether the agent can access, modify, exfiltrate, or misuse data or tools in ways that were not intended.
-
-This checklist focuses on the operational questions teams should ask before connecting tools to agents.
+MCP-style tool access can make agents more useful, but it expands the risk surface. A practical review should ask whether an agent can access, modify, expose, or misuse data or tools in ways that were not intended.
 
 ## Review areas
 
-### 1. Tool scope
-
-- What tools does the MCP server expose?
-- Are any tools write-capable, destructive, or externally visible?
-- Are tool names, descriptions, and parameters clear enough for safe selection?
-- Are dangerous actions separated from read-only actions?
-
-### 2. Permission boundaries
-
-- What account, workspace, or system identity does the tool run as?
-- Does the agent receive broader access than the human user intended?
-- Are least-privilege permissions enforced?
-- Can permissions be reduced, revoked, or audited?
-
-### 3. Data exposure
-
-- What data can the agent read through the tool?
-- Could the tool expose secrets, credentials, private documents, customer data, or internal records?
-- Are sensitive fields filtered or redacted before agent access?
-- Are logs safe to store and review?
-
-### 4. Prompt injection and tool misuse
-
-- Could retrieved content instruct the agent to misuse tools?
-- Are tool calls validated against policy before execution?
-- Are high-impact actions confirmed by a human?
-- Are unexpected tool-call chains detected or blocked?
-
-### 5. Auditability
-
-- Are tool calls logged with timestamp, actor, parameters, and result summary?
-- Can reviewers reconstruct why the agent used a tool?
-- Are failed, denied, or escalated calls recorded?
-- Are logs protected from unauthorized access?
-
-### 6. Failure modes
-
-- What happens if the tool returns stale, partial, malformed, or adversarial data?
-- Does the agent fail safely when a tool is unavailable?
-- Are retries bounded?
-- Is there a rollback or remediation path for write actions?
-
-### 7. Human oversight
-
-- Which actions require human confirmation?
-- Who owns approval for high-risk tool access?
-- Who reviews incidents or unexpected behavior?
-- Is there a clear escalation path?
+1. **Tool scope** — separate read-only, write-capable, destructive, and externally visible tools.
+2. **Permission boundaries** — define identity, least privilege, revocation, and access review.
+3. **Data exposure** — minimize data, redact sensitive fields, and protect logs.
+4. **Prompt injection and tool misuse** — treat retrieved content as untrusted and validate tool calls.
+5. **Auditability** — retain privacy-aware records of allow/deny decisions and results.
+6. **Failure modes** — bound retries, validate responses, degrade safely, and define remediation.
+7. **Human oversight** — define approval thresholds, accountable owners, and escalation paths.
 
 ## Publication safety
 
-Do not publish real MCP server configurations, private tool schemas, internal endpoints, credentials, customer data, or proprietary agent policies in this repository.
+Use only fictional or fully sanitized examples.
 
-Use fictional examples when demonstrating:
-
-- tool manifests
-- permission models
-- logs
-- incident scenarios
-- approval workflows
-- risk assessments
+Do not publish real MCP server configurations, tool manifests, private schemas, internal endpoints, credentials, customer data, audit logs, incident details, permission maps, or proprietary agent policies.
 
 ## Out of scope
 
-This checklist does not yet provide:
+This repository does not provide:
 
 - automated MCP security scanning
 - complete coverage of all agent-tool risks
-- compliance certification
+- security or compliance certification
 - formal security review
 - vendor endorsement
 - production-readiness certification
 
-## Roadmap
+## Next quality steps
 
-To mature this repository, add:
-
-1. a machine-readable checklist schema
-2. a filled fictional example review
-3. a CLI that validates a checklist file
-4. risk scoring guidance by severity and likelihood
-5. sample mitigations for common MCP failure modes
-6. links to relevant public security and agent-safety resources
+1. add a local validator for the bundled schema
+2. add more fictional examples for write-capable and externally visible tools
+3. add a versioned reference list to primary public security and MCP resources
+4. add tests for schema examples and risk-level calculation
 
 ## Scope and disclaimer
 
 This repository is shared in a personal capacity. It is not security certification, legal advice, compliance certification, or official guidance from any vendor, standards body, or employer.
 
-Use this checklist as a starting point. Real agent-tool deployments should be reviewed by qualified security, privacy, legal, compliance, and system owners before production use.
+Use the checklist as a starting point. Real agent-tool deployments should be reviewed by qualified security, privacy, legal, compliance, and system owners before production use.
 
 ---
 
