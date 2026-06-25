@@ -1,0 +1,41 @@
+{
+  "review_id": "MCP-FIC-001",
+  "system_name": "Fictional Read-Only Knowledge Helper",
+  "scope": "A fictional MCP server exposes a read-only search tool over a synthetic document collection. No external network access or write-capable tools are enabled.",
+  "review_status": "approved_with_conditions",
+  "findings": [
+    {
+      "id": "F-001",
+      "area": "permissions",
+      "finding": "The fictional helper should use a dedicated read-only identity instead of a general workspace identity.",
+      "likelihood": 3,
+      "impact": 4,
+      "risk_level": "high",
+      "mitigation": "Use a dedicated least-privilege identity limited to the synthetic collection and document a revocation path.",
+      "owner": "Fictional Platform Owner",
+      "status": "mitigating"
+    },
+    {
+      "id": "F-002",
+      "area": "prompt_injection",
+      "finding": "Retrieved fictional content could contain instructions that attempt to influence tool selection.",
+      "likelihood": 3,
+      "impact": 3,
+      "risk_level": "medium",
+      "mitigation": "Treat retrieved text as untrusted content, enforce an allowlist of read-only tools, and require confirmation before any future high-impact action.",
+      "owner": "Fictional Security Reviewer",
+      "status": "open"
+    },
+    {
+      "id": "F-003",
+      "area": "auditability",
+      "finding": "The fictional prototype needs an event record for tool name, actor, parameter summary, allow/deny decision, and result category.",
+      "likelihood": 2,
+      "impact": 3,
+      "risk_level": "medium",
+      "mitigation": "Add privacy-aware audit logging and define retention/access rules before using non-synthetic data.",
+      "owner": "Fictional Operations Owner",
+      "status": "open"
+    }
+  ]
+}
